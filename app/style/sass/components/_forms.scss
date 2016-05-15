@@ -1,4 +1,21 @@
-.formSubmit {
-  background-color: rgb(62,133,196);
-  border: none;
+.authForm {
+  text-align: center;
+  fieldset {
+    input {
+      margin: 0 auto;
+      width: 60%;
+    }
+  }
+}
+
+.signupFormDiv {
+  background: rgba(76,136,193,0.4);
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 20%;
+}
+
+.loginFormDiv {
+  @extend .signupFormDiv;
 }

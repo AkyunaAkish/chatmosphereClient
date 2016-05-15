@@ -4,25 +4,58 @@
       <div class="item">
         <div class="content">
 
+          <!-- header and signup/login buttons -->
           <div class="landingHeaderDiv">
             <h1>Chatmosphere</h1>
             <h4>Verbalize in the skies</h4>
+
+            <div class="authButtonDiv">
+              <button ng-click="vm.showSignup()">Signup</button>
+              <button ng-click="vm.showLogin()">Login</button>
+            </div>
+
           </div>
 
-          <h1 class="formHeader">Sign Up</h1>
-          <form>
-            <fieldset class="form-group">
-              <label for="formGroupExampleInput">Example label</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-            </fieldset>
-            <fieldset class="form-group">
-              <label for="formGroupExampleInput2">Another label</label>
-              <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-            </fieldset>
-            <fieldset class="form-group">
-              <input type="submit" class="form-control formSubmit"  value="Sign Up">
-            </fieldset>
-          </form>
+          <!-- login form div -->
+          <div class="loginFormDiv" ng-show="vm.login">
+            <h1 class="formHeader">Login</h1>
+            <form class="authForm">
+              <fieldset class="form-group">
+                <label for="usernameOrEmail" class="formLabel">Username or Email</label>
+                <input type="text" class="form-control" id="usernameOrEmail" placeholder="Username or Email">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="password" class="formLabel">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="form-control formSubmit"  value="Login">
+              </fieldset>
+            </form>
+          </div>
+
+          <!-- signup form div -->
+          <div class="signupFormDiv" ng-show="vm.signup">
+            <h1 class="formHeader">Sign Up</h1>
+            <form class="authForm">
+              <fieldset class="form-group">
+                <label for="email" class="formLabel">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="username" class="formLabel">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="password" class="formLabel">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="form-control formSubmit"  value="Sign Up">
+              </fieldset>
+            </form>
+          </div>
+
         </div>
       </div>
     </div>
