@@ -11,7 +11,8 @@
   ];
 
   function AuthController ($log, $scope, authService) {
-
+    
+    socket.emit('messageFeed', 'yo');
   }
 
 }());

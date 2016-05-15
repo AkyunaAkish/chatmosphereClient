@@ -17,7 +17,7 @@ gulp.task('serve', () => {
     port: 8080,
     server: {
       baseDir: "./app",
-      middleware: function(req, res, next) {
+      middleware: (req, res, next) => {
         var fileName = url.parse(req.url);
         fileName = fileName.href.split(fileName.search).join("");
         var fileExists = fs.existsSync(folder + fileName);
@@ -31,12 +31,12 @@ gulp.task('serve', () => {
 
   // to reload on file changes
   gulp.watch('./app/*.html').on('change', reload);
-  gulp.watch('./directive_templates/*.html').on('change', reload);
-  gulp.watch('./js/module/*.js').on('change', reload);
-  gulp.watch('./js/controllers/*.js').on('change', reload);
-  gulp.watch('./js/directives/*.js').on('change', reload);
-  gulp.watch('./js/routes/*.js').on('change', reload);
-  gulp.watch('./js/services/*.js').on('change', reload);
+  gulp.watch('./app/directive_templates/*.html').on('change', reload);
+  gulp.watch('./app/js/module/*.js').on('change', reload);
+  gulp.watch('./app/js/controllers/*.js').on('change', reload);
+  gulp.watch('./app/js/directives/*.js').on('change', reload);
+  gulp.watch('./app/js/routes/*.js').on('change', reload);
+  gulp.watch('./app/js/services/*.js').on('change', reload);
 
 })
 
