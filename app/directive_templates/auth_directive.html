@@ -7,7 +7,7 @@
           <!-- header and signup/login buttons -->
           <div class="landingHeaderDiv">
             <h1>Chatmosphere</h1>
-            <h4>Verbalize in the skies</h4>
+            <h4>Conceptualize in the skies</h4>
 
             <div class="authButtonDiv">
               <button ng-click="vm.showSignup()">Signup</button>
@@ -17,43 +17,118 @@
           </div>
 
           <!-- login form div -->
-          <div class="loginFormDiv" ng-show="vm.login">
+          <div class="loginFormDiv" ng-show="vm.loginShow">
+
             <h1 class="formHeader">Login</h1>
-            <form class="authForm">
-              <fieldset class="form-group">
-                <label for="usernameOrEmail" class="formLabel">Username or Email</label>
-                <input type="text" class="form-control" id="usernameOrEmail" placeholder="Username or Email">
-              </fieldset>
-              <fieldset class="form-group">
-                <label for="password" class="formLabel">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="submit" class="form-control formSubmit"  value="Login">
-              </fieldset>
+
+            <form class="authForm" ng-submit="vm.login()" novalidate>
+
+              <ng-form  name="loginForm">
+
+                <fieldset class="form-group">
+
+                  <label for="usernameOrEmail" class="formLabel">Username or Email</label>
+
+                  <div class="errorMessageDiv" ng-messages="loginForm.loginUsernameOrEmail.$error" ng-show="loginForm.loginUsernameOrEmail.$dirty" role="alert">
+                    <div ng-message="required">Please enter your username or email</div>
+                  </div>
+
+                  <input type="text" ng-model="vm.loginObj.usernameOrEmail" class="form-control" name="loginUsernameOrEmail" id="usernameOrEmail" placeholder="Username or Email" required>
+
+                </fieldset>
+
+                <fieldset class="form-group">
+
+                  <label for="loginPassword" class="formLabel">Password</label>
+
+                  <div class="errorMessageDiv" ng-messages="loginForm.loginPassword.$error" ng-show="loginForm.loginPassword.$dirty" role="alert">
+                    <div ng-message="required">Please enter your password</div>
+                    <div ng-message="pattern">Passwords can't start or end with a special character</div>
+                  </div>
+
+                  <input
+                  type="password"
+                  ng-model="vm.loginObj.password"
+                  ng-pattern="  /^[a-zA-Z0-9](.*[a-zA-Z0-9])?$/"
+                  name="loginPassword"
+                  class="form-control"
+                  id="loginPassword"
+                  placeholder="Password"
+                  required>
+
+                </fieldset>
+
+                <fieldset class="form-group">
+                  <input type="submit" ng-disabled="loginForm.$invalid" class="form-control formSubmit"  value="Login">
+                </fieldset>
+
+              </ng-form>
             </form>
           </div>
 
+
           <!-- signup form div -->
-          <div class="signupFormDiv" ng-show="vm.signup">
+          <div class="signupFormDiv" ng-show="vm.signupShow">
+
             <h1 class="formHeader">Sign Up</h1>
-            <form class="authForm">
-              <fieldset class="form-group">
-                <label for="email" class="formLabel">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Email">
-              </fieldset>
-              <fieldset class="form-group">
-                <label for="username" class="formLabel">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Username">
-              </fieldset>
-              <fieldset class="form-group">
-                <label for="password" class="formLabel">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
-              </fieldset>
-              <fieldset class="form-group">
-                <input type="submit" class="form-control formSubmit"  value="Sign Up">
-              </fieldset>
+
+            <form class="authForm" ng-submit="vm.signup()" novalidate>
+
+              <ng-form  name="signupForm">
+
+                <fieldset class="form-group">
+
+                  <label for="email" class="formLabel">Email</label>
+
+                  <div class="errorMessageDiv" ng-messages="signupForm.signupEmail.$error" ng-show="signupForm.signupEmail.$dirty" role="alert">
+                    <div ng-message="required">Please enter an email</div>
+                    <div ng-message="email">Please enter a valid email</div>
+                  </div>
+
+                  <input type="email" ng-model="vm.signupObj.email" class="form-control" name="signupEmail" id="email" placeholder="Email" required>
+
+                </fieldset>
+
+                <fieldset class="form-group">
+
+                  <label for="username" class="formLabel">Username</label>
+
+                  <div class="errorMessageDiv" ng-messages="signupForm.signupUsername.$error" ng-show="signupForm.signupUsername.$dirty" role="alert">
+                    <div ng-message="required">Please enter a username</div>
+                  </div>
+
+                  <input type="text" ng-model="vm.signupObj.username" name="signupUsername" class="form-control" id="username" placeholder="Username" required>
+
+                </fieldset>
+
+                <fieldset class="form-group">
+
+                  <label for="signupPassword" class="formLabel">Password</label>
+
+                  <div class="errorMessageDiv" ng-messages="signupForm.signupPassword.$error" ng-show="signupForm.signupPassword.$dirty" role="alert">
+                    <div ng-message="required">Please enter a password</div>
+                    <div ng-message="pattern">Passwords can't start or end with a special character</div>
+                  </div>
+
+                  <input
+                  type="password"
+                  ng-model="vm.signupObj.password"
+                  ng-pattern="  /^[a-zA-Z0-9](.*[a-zA-Z0-9])?$/"
+                  name="signupPassword"
+                  class="form-control"
+                  id="signupPassword"
+                  placeholder="Password"
+                  required>
+
+                </fieldset>
+
+                <fieldset class="form-group">
+                  <input type="submit" ng-disabled="signupForm.$invalid" class="form-control formSubmit"  value="Sign Up">
+                </fieldset>
+
+              </ng-form>
             </form>
+
           </div>
 
         </div>

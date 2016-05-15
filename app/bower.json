@@ -23,6 +23,7 @@
     "angular-ui-router": "^0.2.18",
     "bootstrap": "^3.3.6",
     "skeleton": "^2.0.4",
-    "font-awesome": "^4.6.3"
+    "font-awesome": "^4.6.3",
+    "angular-messages": "^1.5.5"
   }
 }
