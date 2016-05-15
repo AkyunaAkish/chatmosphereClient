@@ -1,6 +1,6 @@
 # Chatmosphere Client Side
 
-* Setup and installation
+* Setup and installation (you'll need to be running the server-side application in order for the client-side to work properly)
 
 ```
 $ npm install
