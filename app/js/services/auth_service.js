@@ -2,15 +2,15 @@
   'use strict';
 
   angular.module('chatmosphere')
-  .service('authService', authService)
+  .service('AuthService', AuthService)
 
-  authService.$inject = [
+  AuthService.$inject = [
     '$log',
     '$q',
     '$http'
   ];
 
-  function authService ($log, $q, $http) {
+  function AuthService ($log, $q, $http) {
 
     this.signup = function(signupObj) {
       var deferred = $q.defer();
@@ -27,7 +27,7 @@
       return deferred.promise
     }
 
-    this.login = function(loginObj) {  
+    this.login = function(loginObj) {
       var deferred = $q.defer();
 
       $http.post('http://localhost:3000/api/v1/login', loginObj).then(function(res){

@@ -3,7 +3,6 @@
 <html lang="en" ng-app="chatmosphere">
 <head>
 
-
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -40,6 +39,9 @@
   <!-- angular-messages -->
   <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
 
+  <!-- angular-ng-storage -->
+  <script src="/bower_components/ngstorage/ngStorage.min.js"></script>
+
   <!-- socket-io-script-connection-to-server-development-env -->
   <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 
@@ -52,6 +54,7 @@
   <script src="/js/module/module.js"></script>
 
   <!-- services -->
+  <script src="/js/services/error_service.js"></script>
   <script src="/js/services/token_interceptor_service.js"></script>
   <script src="/js/services/auth_service.js"></script>
   <script src="/js/services/chat_service.js"></script>
@@ -66,6 +69,7 @@
 
   <!-- routes -->
   <script src="/js/routes/routes.js"></script>
+  <script src="/js/routes/state_change_start.js"></script>
 
   <base href="/">
 

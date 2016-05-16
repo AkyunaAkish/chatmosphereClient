@@ -24,6 +24,7 @@
     "bootstrap": "^3.3.6",
     "skeleton": "^2.0.4",
     "font-awesome": "^4.6.3",
-    "angular-messages": "^1.5.5"
+    "angular-messages": "^1.5.5",
+    "ngstorage": "^0.3.10"
   }
 }

@@ -7,14 +7,23 @@
   AuthController.$inject = [
     '$log',
     '$scope',
-    'authService',
-    '$state'
+    'AuthService',
+    '$state',
+    'ErrorService'
   ];
 
-  function AuthController ($log, $scope, authService, $state) {
+  function AuthController ($log, $scope, AuthService, $state, ErrorService) {
     $scope.vm = {};
     $scope.vm.signupShow = true;
     $scope.vm.loginShow = false;
+
+    $scope.vm.authError = ErrorService.getAuthError();
+
+    $scope.$watch(function(){
+      return ErrorService.getAuthError();
+    }, function(newValue){
+      $scope.vm.authError = ErrorService.getAuthError();
+    });
 
     $scope.vm.showLogin = function(){
       $scope.vm.signupShow = false;
@@ -27,17 +36,18 @@
     }
 
     $scope.vm.login = function(){
-      authService.login($scope.vm.loginObj).then(function(res){
+      AuthService.login($scope.vm.loginObj).then(function(res){
         $log.info('res in login then function controller', res);
-        $state.go('chat');
       });
     }
 
     $scope.vm.signup = function(){
-      authService.signup($scope.vm.signupObj).then(function(res){
+      AuthService.signup($scope.vm.signupObj).then(function(res){
         $log.info('res in signup then function controller', res);
-        $state.go('chat');
-      });
+        if (res.status == 200) {
+          $state.go('chat');
+        }
+      })
     }
 
   }

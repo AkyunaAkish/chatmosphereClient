@@ -7,11 +7,11 @@
   ChatController.$inject = [
     '$log',
     '$scope',
-    'chatService'
+    'ChatService'
   ];
 
-  function ChatController ($log, $scope, chatService) {
-
+  function ChatController ($log, $scope, ChatService) {
+    $scope.message = 'CHAT!!!';
   }
 
 }());

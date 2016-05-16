@@ -8,6 +8,7 @@
           <div class="landingHeaderDiv">
             <h1>Chatmosphere</h1>
             <h4>Conceptualize in the skies</h4>
+            <h4 class="red">{{vm.authError}}</h4>
 
             <div class="authButtonDiv">
               <button ng-click="vm.showSignup()">Signup</button>
@@ -49,7 +50,7 @@
                   <input
                   type="password"
                   ng-model="vm.loginObj.password"
-                  ng-pattern="  /^[a-zA-Z0-9](.*[a-zA-Z0-9])?$/"
+                  ng-pattern="/^[a-zA-Z0-9](.*[a-zA-Z0-9])?$/"
                   name="loginPassword"
                   class="form-control"
                   id="loginPassword"

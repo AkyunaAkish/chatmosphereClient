@@ -13,6 +13,8 @@
 
   function chatmosphereRoutes($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
 
+    $httpProvider.interceptors.push("TokenInterceptor");
+
     $stateProvider
     .state('auth', {
       url: "/",

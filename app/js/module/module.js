@@ -3,7 +3,8 @@
 
   var dependencies = [
     'ui.router',
-    'ngMessages'
+    'ngMessages',
+    'ngStorage'
   ];
 
   angular.module('chatmosphere', dependencies);

@@ -2,14 +2,14 @@
   'use strict';
 
   angular.module('chatmosphere')
-  .service('chatService', chatService)
+  .service('ChatService', ChatService)
 
-  chatService.$inject = [
+  ChatService.$inject = [
     '$log',
     '$q'
   ];
 
-  function chatService ($log, $q) {
+  function ChatService ($log, $q) {
 
   }
 
