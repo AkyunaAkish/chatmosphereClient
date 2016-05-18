@@ -17,13 +17,13 @@
     $scope.vm.signupShow = true;
     $scope.vm.loginShow = false;
 
-    $scope.vm.authError = ErrorService.getAuthError();
+    $scope.vm.authErrors = ErrorService.getAuthErrors();
 
     $scope.$watch(function(){
-      return ErrorService.getAuthError();
+      return ErrorService.getAuthErrors();
     }, function(newValue){
-      $scope.vm.authError = ErrorService.getAuthError();
-    });
+      $scope.vm.authErrors = newValue;
+    }, true);
 
     $scope.vm.showLogin = function(){
       $scope.vm.signupShow = false;
@@ -38,14 +38,18 @@
     $scope.vm.login = function(){
       AuthService.login($scope.vm.loginObj).then(function(res){
         $log.info('res in login then function controller', res);
+        if (res.status == 200) {
+          $state.go('thought_spots');
+        }
       });
     }
+
 
     $scope.vm.signup = function(){
       AuthService.signup($scope.vm.signupObj).then(function(res){
         $log.info('res in signup then function controller', res);
         if (res.status == 200) {
-          $state.go('chat');
+          $state.go('thought_spots');
         }
       })
     }

@@ -21,9 +21,14 @@
       template: "<auth-directive></auth-directive>",
       preventWhenLoggedIn: true
     })
-    .state('chat', {
-      url: "/chat",
-      template: "<chat-directive></chat-directive>",
+    .state('thought_spots', {
+      url: "/thought_spots",
+      template: "<thought-spots-directive></thought-spots-directive>",
+      restricted: true
+    })
+    .state('create_thought_spot', {
+      url: "/create_thought_spot",
+      template: "<create_thought-spot-directive></create_thought-spot-directive>",
       restricted: true
     });
 

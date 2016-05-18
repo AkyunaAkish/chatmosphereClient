@@ -10,19 +10,18 @@
 
   function ErrorService ($log) {
 
-    var _auth_error = "Hi";
+    var _auth_errors = [];
 
     this.injectAuthError = function(errorMessage){
-      console.log(errorMessage);
-      _auth_error = errorMessage;
+      _auth_errors.push(errorMessage);
     }
 
-    this.getAuthError = function(){
-      return _auth_error;
+    this.getAuthErrors = function(){
+      return _auth_errors.slice();
     }
 
-    this.add = function(a,b){
-      return a + b;
+    this.clearErrorMessages = function(){
+      _auth_errors = [];
     }
 
   }

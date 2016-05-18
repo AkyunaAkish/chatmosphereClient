@@ -7,8 +7,11 @@
           <!-- header and signup/login buttons -->
           <div class="landingHeaderDiv">
             <h1>Chatmosphere</h1>
-            <h4>Conceptualize in the skies</h4>
-            <h4 class="red">{{vm.authError}}</h4>
+            <!-- <h4>Conceptualize in the skies</h4> -->
+
+            <div ng-repeat="error in vm.authErrors">
+              <h4 class="errorHeader">{{error}}</h4>
+            </div>
 
             <div class="authButtonDiv">
               <button ng-click="vm.showSignup()">Signup</button>

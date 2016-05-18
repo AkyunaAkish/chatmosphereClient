@@ -1,0 +1,32 @@
+<nav class="navbar navbar-inverse sidebar" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="" ui-sref="thought_spots">Chatmosphere</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="" ui-sref="thought_spots">Thought Spots<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-globe"></span></a></li>
+        <li ><a href="" ui-sref="create_thought_spot">Create a new Thought Spot<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-plus"></span></a></li>
+        <li ><a href="">Direct Messaging<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-envelope"></span></a></li>
+        <li ><a href="" ng-click="vm.logout()">Log Out<span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-arrow-left"></span></a></li>
+        <li class="dropdown">
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-cog"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <li><a href="">Profile Settings</a></li>
+          </ul>
+        </li>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+<script type="text/javascript" src="../js/utils/side_nav_directive_util.js"></script>

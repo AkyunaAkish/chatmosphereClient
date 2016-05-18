@@ -7,20 +7,19 @@
   AuthService.$inject = [
     '$log',
     '$q',
-    '$http'
+    '$http',
+    '$localStorage'
   ];
 
-  function AuthService ($log, $q, $http) {
-
+  function AuthService ($log, $q, $http, $localStorage) {
+    
     this.signup = function(signupObj) {
       var deferred = $q.defer();
 
       $http.post('http://localhost:3000/api/v1/signup', signupObj).then(function(res){
-        $log.info('res in service signup', res);
         deferred.resolve(res);
       })
       .catch(function(err){
-        $log.error('error in service signup', err);
         deferred.reject(err);
       })
 
@@ -31,13 +30,22 @@
       var deferred = $q.defer();
 
       $http.post('http://localhost:3000/api/v1/login', loginObj).then(function(res){
-        $log.info('res in service login', res);
         deferred.resolve(res);
       })
       .catch(function(err){
-        $log.error('error in service login', err);
         deferred.reject(err);
       })
+
+      return deferred.promise
+    }
+
+    this.logout = function() {
+      var deferred = $q.defer();
+
+      delete $localStorage["token"];
+      delete $localStorage["user"];
+
+      deferred.resolve("user logged out");
 
       return deferred.promise
     }
