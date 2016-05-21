@@ -1,0 +1,36 @@
+<side-nav-directive></side-nav-directive>
+<div class="main">
+
+
+
+  <div class="container thought_spot_chat_container">
+
+    <div class="row text-center">
+      <div class="col-md-12 thought_spot_chat_header">
+        <div class="thought_spot_name_div">
+          <span class="fa fa-comments-o"></span>
+          <p ng-bind="vm.thought_spot_name | uppercase" ></p>
+        </div>
+      </div>
+
+      <div class="chatContainer">
+        <div class="chatScreen">
+          <div class="chatFormDiv">
+            <form ng-submit="">
+              <input type="text" placeholder="Submit a thought">
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="loggedInContainer">
+        <a class="glossy fa fa-user"> Hello</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

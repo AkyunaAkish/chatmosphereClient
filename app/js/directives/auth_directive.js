@@ -9,8 +9,7 @@
       restrict: 'E',
       scope: {},
       templateUrl: '/directive_templates/auth_directive.html',
-      controller: 'AuthController',
-      controllerAs: 'vm'
+      controller: 'AuthController'
     }
   }
 

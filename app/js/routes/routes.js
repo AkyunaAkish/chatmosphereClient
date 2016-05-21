@@ -26,6 +26,11 @@
       template: "<thought-spots-directive></thought-spots-directive>",
       restricted: true
     })
+    .state('thought_spot', {
+      url: "/thought_spot/:thought_spot_name",
+      template: "<single_thought-spot-directive></single_thought-spot-directive>",
+      restricted: true
+    })
     .state('create_thought_spot', {
       url: "/create_thought_spot",
       template: "<create_thought-spot-directive></create_thought-spot-directive>",

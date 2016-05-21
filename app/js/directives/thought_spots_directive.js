@@ -9,8 +9,7 @@
       restrict: 'E',
       scope: {},
       templateUrl: '/directive_templates/thought_spots_directive.html',
-      controller: 'ThoughtSpotsController',
-      controllerAs: 'vm'
+      controller: 'ThoughtSpotsController'
     }
   }
 

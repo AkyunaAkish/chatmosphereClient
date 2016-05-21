@@ -1,17 +1,10 @@
 <side-nav-directive></side-nav-directive>
 
-
-<!-- table.string('thought_spot_name').notNullable().unique();
-table.binary('though_spot_image').nullable();
-table.boolean('private').notNullable();
-table.integer('creator_id').notNullable().unsigned().references('users.id').index(); -->
-
-
 <div class="main createThoughtSpotDiv text-center">
 
   <h1 class="createHeader text-center">Create a Thought Spot</h1>
 
-  <form class="authForm" ng-submit="" novalidate>
+  <form class="authForm" ng-submit="vm.createThoughtSpot()" novalidate>
 
     <ng-form  name="createThoughtSpotForm">
 
@@ -19,44 +12,32 @@ table.integer('creator_id').notNullable().unsigned().references('users.id').inde
 
         <label for="thoughtSpotName" class="formLabel">Thought Spot name</label>
 
-        <div class="errorMessageDiv" ng-messages="createThoughtSpotForm.thoughtSpotName.$error" ng-show="createThoughtSpotForm.signupEmail.$dirty" role="alert">
+        <div class="errorMessageDiv" ng-messages="createThoughtSpotForm.thoughtSpotName.$error" ng-show="createThoughtSpotForm.thoughtSpotName.$dirty" role="alert" ng-cloak>
           <div ng-message="required">Please enter a name for your Thought Spot</div>
         </div>
 
-        <input type="text" ng-model="vm.thoughtSpotObj.name" class="form-control" name="thoughtSpotName" id="thoughtSpotName" placeholder="Thought Spot name" required>
+        <input type="text" ng-model="vm.thoughtSpotObj.name" maxlength="25" class="form-control" name="thoughtSpotName" id="thoughtSpotName" placeholder="Thought Spot name" required>
 
       </fieldset>
 
       <fieldset class="form-group">
 
-        <label for="username" class="formLabel">Username</label>
+        <label for="thoughtSpotDescription" class="formLabel">Thought Spot Description</label>
 
-        <!-- <div class="errorMessageDiv" ng-messages="createThoughtSpotForm.signupUsername.$error" ng-show="createThoughtSpotForm.signupUsername.$dirty" role="alert">
-        <div ng-message="required">Please enter a username</div>
-      </div> -->
-      <input type="file" fileread="vm.signupObj.uploadme" name="thoughtSpotImage" class="form-control" id="image" />
+        <div class="errorMessageDiv"  ng-messages="createThoughtSpotForm.thoughtSpotDescription.$error" ng-show="createThoughtSpotForm.thoughtSpotDescription.$dirty" role="alert" ng-cloak>
+          <div ng-message="required">Please enter a description for your Thought Spot</div>
+        </div>
 
-    </fieldset>
+        <input type="text" ng-model="vm.thoughtSpotObj.description" maxlength="144" class="form-control" name="thoughtSpotDescription" id="thoughtSpotDescription" placeholder="Thought Spot description" required>
 
-    <fieldset class="form-group">
+      </fieldset>
 
-      <label for="signupPassword" class="formLabel">Password</label>
+      <fieldset class="form-group">
+        <input type="submit" ng-disabled="createThoughtSpotForm.$invalid" class="form-control formSubmit"  value="Create">
+      </fieldset>
 
-      <!-- <div class="errorMessageDiv" ng-messages="createThoughtSpotForm.signupPassword.$error" ng-show="createThoughtSpotForm.signupPassword.$dirty" role="alert">
-      <div ng-message="required">Please enter a password</div>
-      <div ng-message="pattern">Passwords can't start or end with a special character</div>
-    </div> -->
-
-    <input type="password" required>
-
-  </fieldset>
-
-  <fieldset class="form-group">
-    <input type="submit" ng-disabled="createThoughtSpotForm.$invalid" class="form-control formSubmit"  value="Sign Up">
-  </fieldset>
-
-</ng-form>
-</form>
+    </ng-form>
+  </form>
 
 
 </div>

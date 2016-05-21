@@ -1,1 +1,38 @@
 <side-nav-directive></side-nav-directive>
+
+<div class="container thought_spots_container">
+
+  <div class="row text-center though_spots_top">
+    <div class="col-md-12">
+      <h1 class="text-center">Thought Spots</h1>
+      <input type="text" placeholder="Search Though Spots" ng-model="search">
+      <select ng-model="orderBy" ng-init="orderBy='thought_spot_name'">
+        <option value="thought_spot_name">Alphabetical</option>
+        <option value="-thought_spot_name">Reverse-Alphabetical</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Projects Row -->
+  <div class="row text-center">
+    <div class="col-md-3 thought_spot_item" ng-repeat="thought_spot in vm.thought_spots | filter: search | orderBy: orderBy">
+      <div class="thought_spot_name_div">
+        <span class="fa fa-comments-o"></span>
+        <p ng-bind="thought_spot.thought_spot_name | uppercase" ></p>
+      </div>
+      <div class="thought_spot_description_div">
+        <p ng-bind="thought_spot.thought_spot_description"></p>
+      </div>
+
+      <button class="btn btn-primary fa fa-sign-in">
+        <a
+        class="enterClass"
+        ng-href="/thought_spot/{{thought_spot.thought_spot_name}}">
+        Enter
+      </a>
+    </button>
+
+  </div>
+</div>
+
+</div>

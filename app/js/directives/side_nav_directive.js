@@ -9,8 +9,7 @@
       restrict: 'E',
       scope: {},
       templateUrl: '/directive_templates/side_nav_directive.html',
-      controller: 'SideNavController',
-      controllerAs: 'vm'
+      controller: 'SideNavController'
     }
   }
 
